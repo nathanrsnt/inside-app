@@ -1,0 +1,22 @@
+.search::placeholder {
+         color: rgb(189, 189, 189, 0.3);
+    }
+
+    .fontAwesome {
+        font-family: 'Poppins', FontAwesome, sans-serif;
+    }
+
+    .rg-font {
+        font-family: Poppins;
+        font-weight: 400;
+    }
+
+    .lt-font {
+        font-family: Poppins;
+        font-weight: 300;
+    }
+
+    .internal-shadow {
+        box-shadow: inset 0 -4px 4px -4px rgba(0, 0, 0, 0.5);
+    }
+
