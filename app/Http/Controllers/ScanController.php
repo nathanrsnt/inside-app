@@ -15,7 +15,7 @@ class ScanController extends Controller
         $ipAddresses = explode(';', $request->input('ip'));
         $args = explode(' ', $request->input('checkedValues'));
         $allArgs = array('-p-', '-P', '-sV', '-T5', '-A', '-iR', '-sn');
-        $cppPath = "../../CPP/a.out";
+        $cppPath = "../../scans/a.out"; //change me
         $resultList = [];
         $validArgs = '';
 
