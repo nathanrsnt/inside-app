@@ -12,18 +12,38 @@ class ScanController extends Controller
     }
 
     public function runNmap(Request $request) {
-
+        $ipAddresses = explode(';', $request->input('ip'));
+        $args = explode(' ', $request->input('checkedValues'));
+        $allArgs = array('-p-', '-P', '-sV', '-T5', '-A', '-iR', '-sn');
+        $cppPath = "../../CPP/a.out";
         $resultList = [];
-        $ipList = explode(';', $request->input('ip'));
+        $validArgs = '';
 
-        $args = '-sn ';
+        foreach ($args as $arg) {
+            if (!in_array($arg, $allArgs)) {
+                return response()->json(['error' => "Invalid arguments!"], 400);
+            } else {
+                $validArgs .= $arg . ' ';
+            }
+        }
 
-        $command = 'nmap ';
+        $wrappedArgs = '"'.trim($validArgs,'"').'"';
 
-        foreach ($ipList as $ip) {
-            $result = Process::fromShellCommandline($command . $args . $ip);
+
+        foreach ($ipAddresses as $ip) {
+            $command = sprintf("%s %s %s",$cppPath,$ip,$wrappedArgs);
+            $result = Process::fromShellCommandline($command);
+
             $result->setTimeout(1200);
-            $result->run();
+
+            try {
+                $result->run();
+            } catch (\Exception $e) {
+                return response()->json([
+                    'error' => $e->getMessage(),
+                    'output' => $e->getOutput(),
+                ], 500);
+            }
 
             $resultList[] = [
                 'ip' => $ip,

@@ -1,30 +1,56 @@
-    $(document).ready(function() {
+$(document).ready(function() {
+    // Formulário de validação
+    var form = document.getElementById('nmapForm');
+    var applyButton = document.getElementById('applyButton');
 
-        // Formulário de validação
-        var form = document.getElementById('nmapForm');
-        form.addEventListener('submit', function(event) {
-            if (!form.checkValidity() || !isValidIP(form.elements.ip.value)) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
+    applyButton.addEventListener('click', function() {
+        var checked = $(".form-check-input:checked");
+        var checkedValues = [];
 
-            form.classList.add('was-validated');
+        checked.each(function () {
+            checkedValues += $(this).val() + ' ';
         });
 
-        // Função para validar IP
-        function isValidIP(ip) {
-            var ipRegex = /^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.([25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.([25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.([25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$/;
-            return ipRegex.test(ip);
-        }
+        document.getElementById("checkedValues").value = checkedValues;
+    });
 
-        // AJAX para enviar formulário
-        form.addEventListener('submit', function(event) {
+    // Função para validar IP
+    function isValidIP(ip) {
+        var ipRegex = /\b(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b(?:;|$)/;
+        return ipRegex.test(ip);
+    }
+
+    function loading() {
+        document.getElementById("execute").innerHTML = "";
+        document.getElementById("execute").setAttribute('disabled', 'disabled');
+        document.getElementById("filter-button").setAttribute('disabled', 'disabled');
+        $('#execute').append('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+        $('#execute').append('<span class="sr-only">Loading...</span>');
+    }
+
+    function loadingDone() {
+        $('#execute').empty();
+        document.getElementById("execute").innerHTML = "Execute";
+        document.getElementById("execute").removeAttribute('disabled');
+        document.getElementById("filter-button").removeAttribute('disabled');
+    }
+
+    // AJAX para enviar formulário
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var formData = new FormData(form);
+
+        console.log('Running')
+        loading();
+
+        if (!form.checkValidity() || !isValidIP(form.elements.ip.value)) {
             event.preventDefault();
+            event.stopPropagation();
+            loadingDone();
 
-            var formData = new FormData(form);
-
-            console.log('Sending data...', formData);
-
+            $('#responseContainer').html('<p class="text-danger">Please enter a valid IP Address</p>');
+        } else {
             $.ajax({
                 type: 'POST',
                 url: '/run-nmap',
@@ -32,9 +58,7 @@
                 contentType: false,
                 processData: false,
                 success: function(data) {
-                    console.log('sucess', data);
-
-                    // Limpar contêineres existentes
+                    // Limpar existentes
                     $('#resultContainer').empty();
                     $('#responseContainer').empty();
                     $('#ipAddress').empty();
@@ -46,25 +70,25 @@
 
                         // Criar um novo contêiner para cada resultado
                         var resultContainerId = 'resultContainer_' + i;
-                        $('#resultContainer').append('<div id="' + resultContainerId + '" class="mb-5 rounded shadow lt-font"></div>');
+                        $('#resultContainer').append('<div id="' + resultContainerId + '" class="content row mb-5 rounded lt-font"></div>');
 
                         // Exibir o resultado da execução dentro do novo contêiner
                         var formattedOutput = result.output.replace(/\n/g, "<br />");
-                        console.log('formattedOutput', formattedOutput);
-                        $('#' + resultContainerId).html('<pre class="ms-2">' + formattedOutput + '</pre>');
 
-                        // Exibir o IP dentro do novo contêiner
-                        var ipAddressId = 'ipAddress_' + i;
-                        $('#ipAddress').append('<div id="' + ipAddressId + '"></div>');
-                        $('#' + ipAddressId).html('<h4 style="color: #3642B0; margin-bottom: 102px;" >• ' + ipAddress + '</h4>');
+                        $('#' + resultContainerId).append('<div class="col-lg-2"><h4 class="text-right mt-3 rg-font align-top" style="color: #3642B0;" >• ' + ipAddress + '</h4></div>');
+                        $('#' + resultContainerId).append('<div class="col-lg-10 shadow"><pre class="ms-2">' + formattedOutput + '</pre></div>');
                     }
 
+                    loadingDone();
                     $('#responseContainer').html('<p class="text-success">Your scan ran successfully!</p>');
                 },
                 error: function(error) {
                     console.error('Erro na execução do Nmap:', error);
-                    $('#responseContainer').html('<p class="text-danger">Your scan failed: ' + error.message + '</p>');
+
+                    loadingDone();
+                    $('#responseContainer').html('<p class="text-danger">Your scan failed: ' + error.responseJSON.error + '</p>');
                 }
             });
-        });
+        }
     });
+});
