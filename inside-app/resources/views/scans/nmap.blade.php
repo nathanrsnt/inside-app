@@ -181,7 +181,7 @@
                     <button type="button" id="filter-button" class="btn rounded-pill shadow" style="margin-top: 22px; background-color: #3642B0; color: white;" data-bs-toggle="modal" data-bs-target="#filter-modal"> <i class="fa-solid fa-filter"></i> </button>
                     <button type="submit" class="btn rounded-pill shadow" id="execute" name="execute" style="margin-top: 22px; background-color: #3642B0; color: white;" >Execute</button>
                 </div>
-            <div>
+            </div>
         </form>
 
         <!-- Resposta da execução -->

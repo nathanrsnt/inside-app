@@ -7,6 +7,7 @@ use Symfony\Component\Process\Process;
 
 class ScanController extends Controller
 {
+    //nmap
     public function showNmap() {
         return view('scans.nmap');
     }
@@ -14,7 +15,7 @@ class ScanController extends Controller
     public function runNmap(Request $request) {
         $ipAddresses = explode(';', $request->input('ip'));
         $args = explode(' ', $request->input('checkedValues'));
-        $allArgs = array('-p-', '-P', '-sV', '-T5', '-A', '-iR', '-sn');
+        $allArgs = array('-p-', '-P', '-sV', '-T5', '-A', '-iR', '-sn', '-v');
         $cppPath = "../../scans/a.out"; //change me
         $resultList = [];
         $validArgs = '';
@@ -52,5 +53,14 @@ class ScanController extends Controller
         }
 
         return response()->json($resultList);
+    }
+
+
+    public function showGobuster() {
+        return view('scans.gobuster');
+    }
+
+    public function runGosbuter() {
+
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ScanController;
+use App\Http\Controllers\PentestingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,19 @@ use App\Http\Controllers\ScanController;
 |
 */
 
+//home
 Route::get('/', function () {
     return view('welcome');
 });
 
+//###scans###
+//nmap
 Route::post('/run-nmap', [ScanController::class, 'runNmap'])->name('run.nmap');
-Route::get('/show-nmap', [ScanController::class, 'showNmap'])->name('show.nmap');
+Route::get('/nmap', [ScanController::class, 'showNmap'])->name('nmap');
+//gobuster
+Route::get('/run-gobuster', [ScanController::class, 'runGobuster'])->name('run.gobuster');
+Route::get('/gobuster', [ScanController::class, 'showGobuster'])->name('gobuster');
 
+//###pentesting simulations###
+//Home
+Route::get('/pentesting', [PentestingController::class, 'showPentesting'])->name('pentesting');

@@ -27,7 +27,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item"><a class="nav-link" href="#">Pentesting Analysis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('pentesting')}}">Pentesting Analysis</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Malware Analysis</a></li>
                     <li class="nav-item">
                     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">My Stats</a>
@@ -37,9 +37,9 @@
                         More Tools
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#">Nmap</a></li>
-                        <li><a class="dropdown-item" href="#">Gobuster</a></li>
-                        <li><a class="dropdown-item" href="#">placeholder</a></li>
+                        <li><a class="dropdown-item" href="{{route('nmap')}}">Nmap</a></li>
+                        <li><a class="dropdown-item" href="{{route('gobuster')}}">Gobuster</a></li>
+                        <li><a class="dropdown-item" href="#">John The Ripper</a></li>
                     </ul>
                     </li>
                 </ul>
