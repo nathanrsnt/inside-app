@@ -9,6 +9,6 @@
 * Bash Script: Para automatização da instalação de recursos necessários para a aplicação.
 
 ---
-#Instruções de instação
+# Instruções de instação
 
 * Em construção *
