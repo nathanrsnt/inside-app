@@ -1,4 +1,4 @@
-# Inside App
+# Inside
 ### Essa aplicação tem como intenção facilitar testes de penetração automatizando tarefas basicas.
 
 ---
