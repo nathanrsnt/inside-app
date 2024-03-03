@@ -11,4 +11,8 @@
 ---
 # Instruções de instação
 
-###Em construção###
+* git clone repo
+* download php, php-curl, php-xml, composer
+* cd inside-app clone
+* composer update
+* php artisan serve
