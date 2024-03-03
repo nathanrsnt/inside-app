@@ -15,4 +15,5 @@
 * download php, php-curl, php-xml, composer
 * cd inside-app clone
 * composer update
+* php artisan key:generate
 * php artisan serve
