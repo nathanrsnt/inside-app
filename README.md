@@ -15,7 +15,7 @@ Inside é uma aplicação projetada para facilitar testes de penetração automa
 1. Clone o repositório:
 
     ```
-    git clone [text](https://github.com/nathanrsnt/inside-app.git)
+    git clone https://github.com/nathanrsnt/inside-app.git
     ```
 
 2. Certifique-se de ter o PHP, PHP-cURL, PHP-XML e Composer instalados. Se não estiverem instalados, você pode baixá-los e instalá-los seguindo as instruções oficiais.
@@ -44,4 +44,4 @@ Inside é uma aplicação projetada para facilitar testes de penetração automa
     php artisan serve
     ```
 
-Agora você pode acessar a aplicação em http://localhost:8000 e começar a usar o Inside para automatizar seus testes de penetração.
+Agora você pode acessar a aplicação em http://localhost:8000
