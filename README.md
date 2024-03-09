@@ -18,7 +18,7 @@ Inside é uma aplicação projetada para facilitar testes de penetração automa
     git clone https://github.com/nathanrsnt/inside-app.git
     ```
 
-2. Certifique-se de ter o PHP, PHP-cURL, PHP-XML e Composer instalados. Se não estiverem instalados, você pode baixá-los e instalá-los seguindo as instruções oficiais.
+2. Certifique-se de ter PHP, PHP-cURL, PHP-XML e Composer instalados. Se não estiverem instalados, você pode baixá-los e instalá-los seguindo as instruções oficiais.
 
 3. Navegue até o diretório da aplicação:
 
