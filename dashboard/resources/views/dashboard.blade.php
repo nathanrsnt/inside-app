@@ -32,7 +32,6 @@
   </div>
 </div>
 
-
 <div class="container col-lg-12 mt-5">
   <div class="card">
     <div class="card-body">

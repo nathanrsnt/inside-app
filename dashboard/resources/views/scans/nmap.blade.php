@@ -153,8 +153,10 @@
                     </div>
 
                     <div class="d-flex justify-content-end">
-                        <button class="btn btn-primary shadow rounded-pill mb-3 me-4" type="button" style="margin-top: 22px; background-color: white; color: black;">Default</button>
-                        <button class="btn shadow rounded-pill mb-3 me-4" id="applyButton" name="applyButton" type="button" style="margin-top: 22px; background-color: #3642B0; color: white;" data-bs-dismiss="modal">Apply</button>
+                        <button class="btn btn-primary shadow rounded-pill mb-3 me-4" type="button" 
+                            style="margin-top: 22px; background-color: white; color: black;">Default</button>
+                        <button class="btn shadow rounded-pill mb-3 me-4 btn-blue" id="applyButton" name="applyButton" 
+                            type="button" data-bs-dismiss="modal">Apply</button>
                     </div>
                 </div>
             </div>
@@ -172,14 +174,21 @@
             <div class="row col-lg-12">
                 <div class="form-group mb-3 col-lg-10">
                     <label for="ip" class="form-label" style="color: gray;"></label>
-                    <input type="text" class="form-control rounded-pill shadow fontAwesome search" id="ip" name="ip" placeholder="&#xF002;  To enter more than one IP use ;">
+                    <input type="text" class="form-control rounded-pill shadow fontAwesome search" id="ip" name="ip" 
+                        placeholder="&#xF002;  To enter more than one IP use ;">
                     <input type="hidden" name="checkedValues" id="checkedValues" value="">
                     <div class="invalid-feedback">Please, use a valid IP address.</div>
                 </div>
                 <div class="col-lg-2">
-                    <button type="button" class="btn rounded-pill shadow" style="margin-top: 22px; background-color: #3642B0; color: white;" data-bs-toggle="tooltip" data-bs-placement="top" title="This scan can take a while depending on your flags."><i class="fa-solid fa-circle-info"></i></button>
-                    <button type="button" id="filter-button" class="btn rounded-pill shadow" style="margin-top: 22px; background-color: #3642B0; color: white;" data-bs-toggle="modal" data-bs-target="#filter-modal"> <i class="fa-solid fa-filter"></i> </button>
-                    <button type="submit" class="btn rounded-pill shadow" id="execute" name="execute" style="margin-top: 22px; background-color: #3642B0; color: white;" >Execute</button>
+                    <button type="button" class="btn rounded-pill shadow btn-blue" data-bs-toggle="tooltip" 
+                        data-bs-placement="top" title="This scan can take a while depending on your flags.">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </button>
+                    <button type="button" id="filter-button" class="btn rounded-pill shadow btn-blue" 
+                        data-bs-toggle="modal" data-bs-target="#filter-modal"> 
+                        <i class="fa-solid fa-filter"></i> 
+                    </button>
+                    <button type="submit" class="btn rounded-pill shadow btn-blue" id="execute" name="execute">Execute</button>
                 </div>
             </div>
         </form>
@@ -191,4 +200,9 @@
         <div><h4 class="rg-font">IP address:</h4></div>
         <div id="resultContainer" class="mt-3 ml-5 text-right col-lg-12 align-top"></div>
     </div>
+@endsection
+
+
+@section('pagescript')
+    <script src="{{ asset('js/nmap-script.js') }}"></script>
 @endsection

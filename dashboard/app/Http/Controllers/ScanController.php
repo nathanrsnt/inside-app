@@ -59,7 +59,7 @@ class ScanController extends Controller
         return view('scans.gobuster');
     }
 
-    public function runGosbuter() {
-
+    public function runGosbuter(Request $request) {
+        
     }
 }

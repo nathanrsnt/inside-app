@@ -15,15 +15,14 @@ use App\Http\Controllers\PentestingController;
 |
 */
 
-//###pentesting simulations###
 //Home
 Route::get('/', [PentestingController::class, 'showPentesting'])->name('pentesting');
 
-
-//###scans###
+//===Scans===
 //nmap
 Route::post('/run-nmap', [ScanController::class, 'runNmap'])->name('run.nmap');
 Route::get('/nmap', [ScanController::class, 'showNmap'])->name('nmap');
+
 //gobuster
 Route::get('/run-gobuster', [ScanController::class, 'runGobuster'])->name('run.gobuster');
 Route::get('/gobuster', [ScanController::class, 'showGobuster'])->name('gobuster');

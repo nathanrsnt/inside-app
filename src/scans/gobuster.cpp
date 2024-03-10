@@ -1,9 +1,16 @@
 #include<iostream>
 #include<string>
-#include "exec.h"
+#include "../include/exec.h"
 
-int gobuster(const std::string& type, const std::string& dns, const std::string& args) {
-  
+int gobuster(const std::string& type, const std::string& target) {
+  std::string scan = "gobuster ";
+  std::string wordListPath = "-w ../resources/wordlists/directory-list-2.3-small.txt";
+  std::string cmd = scan + type + target + wordListPath;
+  std::string result = exec(cmd.c_str());
+
+  std::cout << "Scan result: \n" << result << std::endl;
+
+  return 0;
 }
 
 int main(int argc, char* argv[]) {
@@ -14,10 +21,10 @@ int main(int argc, char* argv[]) {
   }
 
   std::string type = argv[1];
-  std::string dns = argv[2];
+  std::string target = argv[2];
   std::string args = argv[3];
 
-  gobuster(type, dns, args);
+  gobuster(type, target, args);
 
   return 0;
 }
