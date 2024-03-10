@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // Formulário de validação
+    // Form
     var form = document.getElementById('nmapForm');
     var applyButton = document.getElementById('applyButton');
     var defaultChecked = "-sn";
@@ -18,7 +18,7 @@ $(document).ready(function() {
         document.getElementById("checkedValues").value = checkedValues;
     });
 
-    // Função para validar IP
+    // IP validation
     function isValidIP(ip) {
         var ipRegex = /\b(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b(?:;|$)/;
         return ipRegex.test(ip);
@@ -41,7 +41,7 @@ $(document).ready(function() {
         document.getElementById("filter-button").removeAttribute('disabled');
     }
 
-    // AJAX para enviar formulário
+    // Send form with AJAX
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
