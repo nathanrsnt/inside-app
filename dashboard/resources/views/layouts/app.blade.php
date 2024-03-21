@@ -9,9 +9,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto&display=swap" rel="stylesheet">
-
-
-        <!-- Bootstrap CSS (pode ser substituído pela versão online) -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         <script src="https://kit.fontawesome.com/6aa92d4619.js" crossorigin="anonymous"></script>
@@ -26,11 +23,11 @@
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item"><a class="nav-link" href="{{route('pentesting')}}">Pentesting Analysis</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Malware Analysis</a></li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">My Stats</a>
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px; font-size: 18px">
+                    <li class="nav-item me-2"><a class="nav-link" href="{{route('pentesting')}}">Pentesting Analysis</a></li>
+                    <li class="nav-item me-2"><a class="nav-link" href="#">Malware Analysis</a></li>
+                    <li class="nav-item me-2">
+                    <a class="nav-link me-2" href="#" tabindex="-1" aria-disabled="true">My Stats</a>
                     </li>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,10 +40,6 @@
                     </ul>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control-sm me-2 rounded-pill shadow" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn rounded-pill shadow" type="submit" style="background-color: #3642B0; color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
                 </div>
             </div>
         </nav>

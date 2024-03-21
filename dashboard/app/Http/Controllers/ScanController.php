@@ -16,7 +16,7 @@ class ScanController extends Controller
         $ipAddresses = explode(';', $request->input('ip'));
         $args = explode(' ', $request->input('checkedValues'));
         $allArgs = array('-p-', '-P', '-sV', '-T5', '-A', '-iR', '-sn', '-v');
-        $cppPath = "../../bin/nmap_exec"; //change me
+        $cppPath = "../../bin/nmap_exec";
         $resultList = [];
         $validArgs = '';
 
@@ -60,6 +60,8 @@ class ScanController extends Controller
     }
 
     public function runGosbuter(Request $request) {
+
+        
         
     }
 }
