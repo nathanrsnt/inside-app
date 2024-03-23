@@ -1,6 +1,6 @@
 #include<iostream>
 #include<string>
-#include "../include/exec.h"
+#include "../headers/exec.h"
 
 int nmapScan(const std::string& ip, const std::string& args) {
   std::string scan = "nmap "; 

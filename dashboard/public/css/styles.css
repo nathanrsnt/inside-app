@@ -27,12 +27,3 @@
         background-color: #3642B0;
         color: white;
     }
-
-    .navbar-nav > li > a::after {
-        content: '|';
-        padding-left: 15px;
-    }
-
-    .navbar-nav > li:last-child > a::after {
-        content: none;
-    }

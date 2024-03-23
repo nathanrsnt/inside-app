@@ -1,11 +1,11 @@
 #include<iostream>
 #include<string>
-#include "../include/exec.h"
+#include "../headers/exec.h"
 
-int gobuster(const std::string& type, const std::string& target) {
+int gobuster(const std::string& type, const std::string& target, const std::string& args) {
   std::string scan = "gobuster ";
   std::string wordListPath = "-w ../resources/wordlists/directory-list-2.3-small.txt";
-  std::string cmd = scan + type + target + wordListPath;
+  std::string cmd = scan + args + type + target + wordListPath;
   std::string result = exec(cmd.c_str());
 
   std::cout << "Scan result: \n" << result << std::endl;

@@ -19,18 +19,20 @@
                 <div>
                     <a class="navbar-brand" href="#"><img src="/img/logo.png" width="136px" height="48px" title="logo"></a>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" 
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px; font-size: 18px">
+                <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px; font-size: 17px">
                     <li class="nav-item me-2"><a class="nav-link" href="{{route('pentesting')}}">Pentesting Analysis</a></li>
                     <li class="nav-item me-2"><a class="nav-link" href="#">Malware Analysis</a></li>
                     <li class="nav-item me-2">
                     <a class="nav-link me-2" href="#" tabindex="-1" aria-disabled="true">My Stats</a>
                     </li>
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         More Tools
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
